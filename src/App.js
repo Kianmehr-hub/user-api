@@ -1,6 +1,5 @@
 import data from '../src/data/data.json'
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import './App.css'
@@ -23,12 +22,9 @@ const App = () => {
           <th>Email</th>
           <th>Address</th>
         </tr>
-        <Routes>
-        <Route path='/:dataId' element={<SinglePage />} />
-        </Routes>
         {list.map((data) => 
         <tr>
-          <Link to={`/${data.id}`}><td className='name'>{data.name}</td></Link>
+          <td><Link to={`/${data.id}`} className='name'>{data.name}</Link></td>
           <td className='username'>{data.username}</td>
           <td className='email'>{data.email}</td>
           <td className='address'>{data.address.city}</td>
