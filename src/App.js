@@ -27,8 +27,8 @@ const App = () => {
               </Link>
             </td>
             <td className="table-success">{data.username}</td>
-            <td className="email">{data.email}</td>
-            <td className="address">{data.address.city}</td>
+            <td className="table-success">{data.email}</td>
+            <td className="table-success">{data.address.city}</td>
           </tr>
         ))}
       </table>
