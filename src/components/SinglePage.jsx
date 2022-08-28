@@ -19,20 +19,24 @@ const SinglePage = () => {
         </button>
       </div>
 
-      <table className="table table-dark">
+      <table className="table">
+        <thead>
         <tr>
-          <th className="h-name">name</th>
-          <th className="h-username">username</th>
-          <th className="h-email">email</th>
-          <th className="h-address">address</th>
+          <th className="table-light">name</th>
+          <th className="table-light">username</th>
+          <th className="table-light">email</th>
+          <th className="table-light">address</th>
         </tr>
+        </thead>
         {selectedUser && (
+          <tbody>
           <tr>
-            <td>{selectedUser.name}</td>
-            <td>{selectedUser.username}</td>
-            <td>{selectedUser.email}</td>
-            <td>{selectedUser.address.city}</td>
+            <td className="table-success">{selectedUser.name}</td>
+            <td className="table-success">{selectedUser.username}</td>
+            <td className="table-success">{selectedUser.email}</td>
+            <td className="table-success">{selectedUser.address.city}</td>
           </tr>
+          </tbody>
         )}
       </table>
     </div>

@@ -13,23 +13,25 @@ const App = () => {
   return (
     <div className="container">
       <table className="table">
+        <thead>
         <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Address</th>
+          <th className="table-light">Name</th>
+          <th className="table-light">Username</th>
+          <th className="table-light">Email</th>
+          <th className="table-light">Address</th>
         </tr>
+        </thead>
         {list.map((data) => (
+          <tbody>
           <tr>
-            <td>
-              <Link to={`/${data.id}`} className="table-success">
-                {data.name}
-              </Link>
+            <td className="table-success">
+              <Link to={`/${data.id}`} className="text-decoration-none text-dark">{data.name}</Link>
             </td>
             <td className="table-success">{data.username}</td>
             <td className="table-success">{data.email}</td>
             <td className="table-success">{data.address.city}</td>
           </tr>
+          </tbody>
         ))}
       </table>
     </div>
