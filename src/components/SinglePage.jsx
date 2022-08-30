@@ -5,6 +5,7 @@ import data from "../data/data.json";
 
 const SinglePage = () => {
   const { dataId } = useParams();
+
   const [selectedUser, setSelectedUser] = useState(null);
   useEffect(() => {
     setSelectedUser(data.find((item) => item.id == dataId));
@@ -12,33 +13,63 @@ const SinglePage = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div>
-        <button className="btn btn-warning m-1">
-          <Link to="/" className="text-decoration-none text-dark">back</Link>
-        </button>
+        <Link
+          to="/"
+          className=" btn btn-success text-white fw-bold text-decoration-none text-dark"
+        >
+          back
+        </Link>
       </div>
-
-      <table className="table">
+      <div className="card w-50 text-center mt-5">
+        <div className="card-header h4">Person Info</div>
+        <div className="card-body">
+          {selectedUser && (
+            <div>
+              <div className="d-flex mt-2 justify-content-between align-items-center">
+                <div className="">Name </div>
+                <div className="text-muted fst-italic">{selectedUser.name}</div>
+              </div>
+              <hr />
+              <div className="d-flex mt-2 justify-content-between align-items-center">
+                <div className="">Username </div>
+                <div className="text-muted fst-italic">{selectedUser.username}</div>
+              </div>
+              <hr />
+              <div className="d-flex mt-2 justify-content-between align-items-center">
+                <div className="">Email </div>
+                <div className="text-muted fst-italic">{selectedUser.email}</div>
+              </div>
+              <hr />
+              <div className="d-flex mt-2 justify-content-between align-items-center">
+                <div className="">Location </div>
+                <div className="text-muted fst-italic">{selectedUser.address.city}</div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      {/* <table className="table">
         <thead>
-        <tr>
-          <th className="table-light">name</th>
-          <th className="table-light">username</th>
-          <th className="table-light">email</th>
-          <th className="table-light">address</th>
-        </tr>
+          <tr>
+            <th className="table-light">name</th>
+            <th className="table-light">username</th>
+            <th className="table-light">email</th>
+            <th className="table-light">address</th>
+          </tr>
         </thead>
         {selectedUser && (
           <tbody>
-          <tr>
-            <td className="table-success">{selectedUser.name}</td>
-            <td className="table-success">{selectedUser.username}</td>
-            <td className="table-success">{selectedUser.email}</td>
-            <td className="table-success">{selectedUser.address.city}</td>
-          </tr>
+            <tr>
+              <td className="table-success">{selectedUser.name}</td>
+              <td className="table-success">{selectedUser.username}</td>
+              <td className="table-success">{selectedUser.email}</td>
+              <td className="table-success">{selectedUser.address.city}</td>
+            </tr>
           </tbody>
         )}
-      </table>
+      </table> */}
     </div>
   );
 };
